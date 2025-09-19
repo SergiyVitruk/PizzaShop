@@ -1,0 +1,19 @@
+{
+  "React FC with Props": {
+    "prefix": "rfcp",
+    "body": [
+      "import React from 'react';",
+      "",
+      "interface Props {",
+      "  className?: string;",
+      "}",
+      "",
+      "export const ${1:TopBar}: React.FC<Props> = ({ className }) => {",
+      "  return (",
+      "    <div className={className}>$0</div>",
+      "  );",
+      "};"
+    ],
+    "description": "React Functional Component with Props (className)"
+  }
+}

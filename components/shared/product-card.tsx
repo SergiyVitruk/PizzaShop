@@ -39,7 +39,7 @@ export const ProductCard = ({
 
           <Button variant="secondary">
             <Plus size={20} className="mr-1" />
-            Add to basket
+            Add to cart
           </Button>
         </div>
       </Link>

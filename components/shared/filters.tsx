@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Title } from "./title";
 import { Input } from "../ui";
 import { CheckboxFiltersGroup, FilterCheckbox, RangeSlider } from ".";

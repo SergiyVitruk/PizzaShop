@@ -1,5 +1,3 @@
-import React from "react";
-
 import { cn } from "@/lib/utils";
 import { ArrowUpDown } from "lucide-react";
 import {
@@ -12,7 +10,7 @@ interface Props {
   className?: string;
 }
 
-export const SortPopup: React.FC<Props> = ({ className }) => {
+export const SortPopup = ({ className }:Props) => {
   return (
     <Popover>
       <PopoverTrigger asChild>

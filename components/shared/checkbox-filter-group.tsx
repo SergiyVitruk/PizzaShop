@@ -2,7 +2,8 @@
 
 import React from "react";
 import { FilterChecboxProps, FilterCheckbox } from "./filter-checkbox";
-import { Skeleton, Input } from "../ui";
+import { Input } from "../ui/input";
+import { Skeleton } from "../ui";
 
 type Item = FilterChecboxProps;
 
@@ -55,25 +56,25 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
     );
   }
 
-  const filteredItems = items.filter((item) =>
-    item.text.toLowerCase().includes(searchValue.toLowerCase())
-  );
-
   const list = showAll
-    ? filteredItems
-    : (defaultItems || filteredItems).slice(0, limit);
+    ? items.filter((item) =>
+        item.text.toLowerCase().includes(searchValue.toLocaleLowerCase())
+      )
+    : (defaultItems || items).slice(0, limit);
 
   return (
     <div className={className}>
       <p className="font-bold mb-3">{title}</p>
 
-      <div className="mb-5">
-        <Input
-          onChange={onChangeSearchInput}
-          placeholder={searchInputPlaceholder}
-          className="bg-gray-50 border-none"
-        />
-      </div>
+      {showAll && (
+        <div className="mb-5">
+          <Input
+            onChange={onChangeSearchInput}
+            placeholder={searchInputPlaceholder}
+            className="bg-gray-50 border-none"
+          />
+        </div>
+      )}
 
       <div className="flex flex-col gap-4 max-h-96 pr-2 overflow-auto scrollbar">
         {list.map((item, index) => (

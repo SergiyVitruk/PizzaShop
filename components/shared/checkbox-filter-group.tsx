@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
 import { FilterChecboxProps, FilterCheckbox } from "./filter-checkbox";
 import { Input } from "../ui/input";
 import { Skeleton } from "../ui";
+import { useState } from "react";
 
 type Item = FilterChecboxProps;
 
@@ -14,14 +14,14 @@ interface Props {
   limit?: number;
   loading?: boolean;
   searchInputPlaceholder?: string;
+  className?: string;
   onClickCheckbox?: (id: string) => void;
   defaultValue?: string[];
   selected?: Set<string>;
-  className?: string;
   name?: string;
 }
 
-export const CheckboxFiltersGroup: React.FC<Props> = ({
+export const CheckboxFiltersGroup = ({
   title,
   items,
   defaultItems,
@@ -32,9 +32,9 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
   onClickCheckbox,
   selected,
   name,
-}) => {
-  const [showAll, setShowAll] = React.useState(false);
-  const [searchValue, setSearchValue] = React.useState("");
+}: Props) => {
+  const [showAll, setShowAll] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
 
   const onChangeSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
@@ -94,7 +94,7 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
         <div className={showAll ? "border-t border-t-neutral-100 mt-4" : ""}>
           <button
             onClick={() => setShowAll(!showAll)}
-            className="text-primary mt-3"
+            className="text-primary mt-5"
           >
             {showAll ? "Hide" : "+ Show all"}
           </button>
